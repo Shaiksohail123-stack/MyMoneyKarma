@@ -1,0 +1,19 @@
+function ProductList({ products }) {
+const [selectedProduct, setSelectedProduct] = useState(null);
+return (
+<div>
+<h2>Financial Products</h2>
+{products.map((product) => (
+<button key={product.id} onClick={() => setSelectedProduct(product)}>
+{product.name}
+</button>
+))}
+{selectedProduct && (
+<div>
+<h3>{selectedProduct.name}</h3>
+<p>Interest Rate: {selectedProduct.interestRate}%</p>
+<p>Fees: {selectedProduct.fees}</p>
+</div>
+)}
+</div>
+);
